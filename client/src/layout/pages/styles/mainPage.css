@@ -1,0 +1,70 @@
+section.main {
+  margin: 67vh 0 0;
+  background-color: white;
+}
+
+section.main div.introduction p {
+  text-align: center;
+  font-size: 80px;
+  padding: 20vh 20vw;
+}
+
+section.main div.advantages {
+  height: 40vh;
+  width: 100%;
+  background-color: #444;
+  color: white;
+
+  display: flex;
+  flex-direction: row;
+}
+
+section.main div.advantages > div {
+  flex-basis: 25%;
+  position: relative;
+}
+
+section.main div.advantages > div div.advantage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 25vh;
+  width: 25vh;
+  border: white 4px solid;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 6px #444, 0px 0px 0px 10px white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section.main div.advantages > div div.advantage i {
+  font-size: 10vh;
+  display: block;
+}
+section.main div.advantages > div div.advantage p {
+  text-align: center;
+  padding-top: 5px;
+  font-size: 3vh;
+}
+
+section.main div.about {
+  height: 40vh;
+  width: 100%;
+  background-color: #555;
+  color: white;
+}
+
+section.main div.map {
+  height: 50vh;
+  width: 100%;
+}
+
+section.main div.map iframe {
+  height: 100%;
+  width: 100%;
+}

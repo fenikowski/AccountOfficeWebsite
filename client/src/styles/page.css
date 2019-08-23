@@ -1,5 +1,4 @@
-section.main {
-  margin: 67vh 0 0;
-  height: 90vh;
+section {
+  min-height: 86vh;
   background-color: white;
 }

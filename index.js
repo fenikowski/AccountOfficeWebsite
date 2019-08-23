@@ -5,6 +5,8 @@ var ObjectId = require("mongodb").ObjectID;
 var cors = require("cors");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
+const nodemailer = require("nodemailer");
+const nodeEmail = require("./backend/nodejs-email");
 
 const port = process.env.PORT || 5000;
 const app = express();
@@ -74,6 +76,20 @@ router.post("/urgentInfo", (req, res) => {
   );
 
   res.json({ response: "Zmiana zapisana" });
+  res.end();
+});
+
+router.post("/sendMessage", (req, res) => {
+  const { author, contact, textarea } = req.body;
+
+  const message = `<p style='fontsize: 20px; margin-bottom: 5px;'>Otrzymałeś nową wiadomość od <b>${author}</b>.</p>
+<p style='fontsize: 20px'>Treść wiadomości to:</p>
+<p style='fontsize: 16px; border: solid 1px black; margin: 5px 0 10px;'>${textarea}</p>
+<p style='fontsize: 20px'>Możesz na nią odpowiedzieć kontaktując się za pomocą <b>${contact}</b>.</p>`;
+
+  nodeEmail(nodemailer, message);
+
+  res.json({ info: "Wiadomość została wysłana!" });
   res.end();
 });
 
