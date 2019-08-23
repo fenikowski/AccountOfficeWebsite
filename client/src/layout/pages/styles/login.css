@@ -1,0 +1,19 @@
+section.login {
+  margin-top: 7vh;
+  height: 86vh;
+}
+
+form#login-panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px lightgray solid;
+  padding: 2vh;
+}
+
+form#login-panel input {
+  display: block;
+  margin: 3px 0 3px;
+  border: 1px gray solid;
+}

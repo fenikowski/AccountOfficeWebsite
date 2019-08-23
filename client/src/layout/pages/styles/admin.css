@@ -1,0 +1,8 @@
+section.admin {
+  margin-top: 7vh;
+  height: 86vh;
+}
+
+section.admin div.settings h1 {
+  font-size: 6vh;
+}
