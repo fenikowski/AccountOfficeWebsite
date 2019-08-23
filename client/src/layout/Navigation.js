@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, Switch, Route } from "react-router-dom";
 import "../styles/navigation.css";
 import Cookies from "universal-cookie";
+import axios from "axios";
 
 class Navigation extends React.Component {
   state = {
@@ -14,7 +15,8 @@ class Navigation extends React.Component {
   }
 
   loadUrgentInfo = () => {
-    fetch("http://localhost:5000/api/urgentInfo")
+    axios
+      .get("/api/urgentInfo")
       .then(data => data.json())
       .then(data => {
         if (data.content) {
