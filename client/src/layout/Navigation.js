@@ -15,17 +15,14 @@ class Navigation extends React.Component {
   }
 
   loadUrgentInfo = () => {
-    axios
-      .get("/api/urgentInfo")
-      .then(data => data.json())
-      .then(data => {
-        if (data.content) {
-          this.setState({
-            urgentInfo: data.content,
-            dopAnimation: "blink 1s infinite"
-          });
-        }
-      });
+    axios.get("/api/urgentInfo").then(data => {
+      if (data.data.content) {
+        this.setState({
+          urgentInfo: data.data.content,
+          dopAnimation: "blink 1s infinite"
+        });
+      }
+    });
   };
 
   handleLogout = () => {
