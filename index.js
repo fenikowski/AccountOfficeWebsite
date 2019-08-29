@@ -48,11 +48,16 @@ router.get("/urgentInfo", (req, res) => {
   const year = Number(today.getFullYear());
 
   info.findOne({ name: "urgentInfo" }, (err, data) => {
+    console.log(data.until.year, year);
+    console.log(data.until.month, month);
+    console.log(data.until.day, day);
+
     if (data) {
       if (
-        data.until.year >= year &&
-        data.until.month >= month &&
-        data.until.day > day
+        (data.until.year >= year && data.until.month > month) ||
+        (data.until.year >= year &&
+          data.until.month === month &&
+          data.until.day > day)
       ) {
         res.json(data);
         res.end();
