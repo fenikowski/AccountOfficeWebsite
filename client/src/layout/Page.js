@@ -5,6 +5,7 @@ import OffertPage from "./pages/offertPage";
 import LoginPage from "./pages/loginPage";
 import AdminPage from "./pages/adminPage";
 import ContactPage from "./pages/contactPage";
+import AuthorPage from "./pages/authorPage";
 import "../styles/page.css";
 
 class Page extends React.Component {
@@ -17,6 +18,7 @@ class Page extends React.Component {
         <Route path="/kontakt" render={() => <ContactPage />} />
         <Route path="/login" render={() => <LoginPage />} />
         <Route path="/admin" render={() => <AdminPage />} />
+        <Route path="/author" render={() => <AuthorPage />} />
       </Switch>
     );
   }

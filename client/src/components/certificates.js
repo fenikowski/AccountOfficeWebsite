@@ -19,8 +19,8 @@ class Certificates extends React.Component {
   };
 
   render() {
-    const certificates = this.state.certificates.map(item => (
-      <div className="certificate">
+    const certificates = this.state.certificates.map((item, index) => (
+      <div key={index} className="certificate">
         <img src={`/api/showImage/${item.filename}`} alt="certyfikat" />
       </div>
     ));

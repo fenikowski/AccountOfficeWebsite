@@ -17,6 +17,13 @@ footer p {
   font-weight: 300;
 }
 
-footer p span {
+footer p a {
   font-weight: 400;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+footer p a:hover {
+  color: skyblue;
 }

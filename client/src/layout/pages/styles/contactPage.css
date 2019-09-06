@@ -18,8 +18,9 @@ form#contact-form {
 }
 
 form#contact-form p {
-  font-size: 40px;
-  font-weight: 600;
+  font-size: 5.5vh;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
 form#contact-form input {
@@ -45,27 +46,26 @@ form#contact-form textarea {
 
 form#contact-form button {
   width: 60%;
-  background-color: black;
-  color: white;
-  height: 5%;
-  border: 2px white solid;
+  background-color: white;
+  color: black;
+  border: 1px black solid;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 16px;
-  transition: 0.4s;
+  font-size: 3vh;
+  padding: 0.5vh 0;
+  transition: 0.1s;
 }
 
 form#contact-form button:hover {
   cursor: pointer;
-  background-color: white;
-  border: black 2px solid;
-  color: black;
+  border: red 1px solid;
+  color: red;
 }
 
 div#contact-data {
   flex-basis: 50%;
-  background-color: #777;
+  background-color: #bbb;
 
   display: flex;
   flex-direction: column;
@@ -73,14 +73,11 @@ div#contact-data {
   align-items: center;
 }
 
-div#contact-data div.map {
-  /* border: lightgray 4px solid; */
-}
-
 div#contact-data div.contact-list div {
   color: white;
   padding: 5px;
   font-size: 24px;
+  text-shadow: 1px 1px black;
 }
 div#contact-data div.contact-list div i {
   padding-right: 12px;

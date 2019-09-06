@@ -51,7 +51,7 @@ class ContactPafe extends React.Component {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d33198.30608072037!2d18.613054120040097!3d54.38539397393335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd74b9736d6507%3A0xa1d5e55183d762f0!2sTadeusza+Ko%C5%9Bciuszki+69%2C+80-446+Gda%C5%84sk!5e0!3m2!1ses!2spl!4v1566556089122!5m2!1ses!2spl"
               width="400"
               height="300"
-              style={{ border: "lightgray 4px solid", padding: 0, margin: 0 }}
+              style={{ border: "white 2px solid", padding: 0, margin: 0 }}
               allowfullscreen
             />
           </div>
