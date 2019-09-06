@@ -9,7 +9,7 @@ section.contact {
 
 form#contact-form {
   flex-basis: 50%;
-  background-color: rgb(253, 214, 214);
+  background-color: #fff;
 
   display: flex;
   flex-direction: column;
@@ -27,7 +27,13 @@ form#contact-form input {
   width: 60%;
   height: 5%;
   font-size: 20px;
-  padding: 5px;
+  padding: 5px 5px 0;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+form#contact-form input:focus {
+  outline: none;
 }
 
 form#contact-form textarea {

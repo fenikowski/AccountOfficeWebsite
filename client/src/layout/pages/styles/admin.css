@@ -1,8 +1,151 @@
 section.admin {
   margin-top: 7vh;
-  height: 86vh;
+  min-height: 86vh;
+
+  display: flex;
+  flex-direction: column;
 }
 
-section.admin div.settings h1 {
+section.admin div.titles {
+  display: flex;
+  flex-direction: row;
+}
+
+section.admin div.titles h1 {
   font-size: 6vh;
+  flex-basis: 50%;
+  margin-left: 15px;
+}
+
+section.admin div.row {
+  flex-basis: 10%;
+
+  border-bottom: 3px lightgray solid;
+
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+}
+
+section.admin div.row div:nth-of-type(2) {
+  border-left: 1px solid lightgray;
+}
+
+section.admin div.row div {
+  flex-basis: 50%;
+}
+
+section.admin div.row div div.current-info {
+  padding: 3vh;
+  width: 40vw;
+}
+
+section.admin div.row div div.current-info p,
+section.admin div.row div p.form-info {
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+  display: block;
+}
+
+section.admin div.row div p.form-info {
+  margin-bottom: 15px;
+}
+
+section.admin div.row div div.current-info span {
+  display: block;
+  font-weight: 300;
+}
+
+section.admin form {
+  padding: 3vh;
+  width: 40vw;
+}
+
+section.admin form input,
+section.admin form textarea {
+  font-size: 18px;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+form#set-urgent-info input:nth-of-type(1),
+section.admin form textarea {
+  width: 25vw;
+}
+
+section.admin form textarea {
+  height: 10vh;
+  width: 35vw;
+}
+
+section.admin button {
+  display: block;
+}
+
+section.admin div.row div img {
+  height: 20vh;
+  padding-left: 3vh;
+}
+
+section.admin button,
+section.admin input[type="submit"] {
+  display: inline-block;
+  height: 4.5vh;
+  width: 6vw;
+  font-size: 2.5vh;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 5px;
+  margin-top: 5px;
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  transition: 0.15s;
+}
+
+section.admin button:hover,
+section.admin input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: rgb(126, 206, 126);
+}
+
+section.admin div.certificates-board {
+  width: 40vw;
+  height: 20vh;
+  border: #ddd 3px solid;
+
+  display: flex;
+  flex-direction: column;
+}
+
+section.admin div.certificates-board div.certificate {
+  flex-basis: 10%;
+  background-color: #222;
+  color: white;
+
+  display: flex;
+  flex-direction: row;
+}
+
+section.admin div.certificates-board div.certificate p {
+  border: none !important;
+  margin: 0 !important;
+
+  flex-basis: 90%;
+
+  padding: 5px 20px;
+}
+
+section.admin div.certificates-board div.certificate button {
+  flex-grow: 1;
+  margin: 0 5px;
+  margin-top: 5px;
+  height: 70%;
+  background-color: lightcoral;
+}
+
+section.admin div.certificates-board div.certificate button:hover {
+  background-color: red;
+}
+
+section.admin div.certificates-board div.certificate:nth-of-type(2n-1) {
+  background-color: #444;
 }
