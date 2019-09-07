@@ -9,11 +9,37 @@ form#login-panel {
   left: 50%;
   transform: translate(-50%, -50%);
   border: 2px lightgray solid;
-  padding: 2vh;
+  padding: 5vh 4vh;
+  border-radius: 10px;
 }
 
 form#login-panel input {
   display: block;
+  font-size: 20px;
+  width: 10vw;
+  border-radius: 2px;
   margin: 3px 0 3px;
   border: 1px gray solid;
+}
+
+form#login-panel button {
+  height: 3.5vh;
+  width: 5vw;
+  font-size: 2vh;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 5px;
+  margin-top: 1.5vh;
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  transition: 0.15s;
+}
+
+form#login-panel button:hover {
+  cursor: pointer;
+  background-color: rgb(126, 206, 126);
+}
+
+form#login-panel p {
+  margin-top: 1vh;
 }
