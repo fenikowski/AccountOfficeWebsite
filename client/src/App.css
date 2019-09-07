@@ -1,3 +1,8 @@
+:root {
+  --navAndFooterBgc: #222;
+  --navAndFooterColor: #fff;
+}
+
 div#app {
   position: relative;
 }

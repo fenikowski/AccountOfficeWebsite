@@ -5,8 +5,8 @@ footer {
   z-index: 2;
   height: 7vh;
   width: 100%;
-  background-color: #222;
-  color: white;
+  background-color: var(--navAndFooterBgc);
+  color: var(--navAndFooterColor);
   text-align: center;
 }
 
@@ -19,7 +19,7 @@ footer p {
 
 footer p a {
   font-weight: 400;
-  color: white;
+  color: var(--navAndFooterColor);
   text-decoration: none;
   transition: 0.2s;
 }

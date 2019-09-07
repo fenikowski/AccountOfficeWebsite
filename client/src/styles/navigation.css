@@ -7,11 +7,11 @@ nav {
   position: fixed;
   top: 0vh;
   left: 0;
-  z-index: 2;
+  z-index: 3;
 
   height: 7vh;
   width: 100%;
-  background-color: #222;
+  background-color: var(--navAndFooterBgc);
   font-size: 20px;
 }
 
@@ -45,7 +45,7 @@ div#urgent-info p span {
 nav a {
   text-align: center;
   flex-basis: 10%;
-  color: white;
+  color: var(--navAndFooterColor);
   text-decoration: none;
   font-weight: 300;
 }

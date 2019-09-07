@@ -40,7 +40,6 @@ section.main div.advantages {
 section.main div.advantages > div {
   flex-basis: 25%;
   position: relative;
-  z-index: 0;
 }
 
 section.main div.advantages > div div.advantage {
