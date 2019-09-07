@@ -52,20 +52,20 @@ class ContactPafe extends React.Component {
               width="400"
               height="300"
               style={{ border: "white 2px solid", padding: 0, margin: 0 }}
-              allowfullscreen
+              allowFullScreen
             />
           </div>
           <div className="contact-list">
             <div>
-              <i class="fas fa-phone" />
+              <i className="fas fa-phone" />
               502135334
             </div>
             <div>
-              <i class="fas fa-envelope" />
+              <i className="fas fa-envelope" />
               maciejkaczmarski1@wp.pl
             </div>
             <div>
-              <i class="fas fa-home" />
+              <i className="fas fa-home" />
               ul. Kościuszki 69/7, Gdańsk
             </div>
           </div>
@@ -76,7 +76,7 @@ class ContactPafe extends React.Component {
           </div>
         </div>
         <form action="submit" id="contact-form">
-          <p>Umów się na spotkanie!</p>
+          <p>Umów się na spotkanie</p>
           <input
             type="text"
             name="author"
@@ -100,7 +100,16 @@ class ContactPafe extends React.Component {
             value={this.state.textarea}
             onChange={this.handleInput}
           />
-          <button onClick={this.handleClick}>Wyślij</button>
+          <button
+            disabled={
+              this.state.contact && this.state.author && this.state.textarea
+                ? false
+                : true
+            }
+            onClick={this.handleClick}
+          >
+            Wyślij
+          </button>
           <p>{this.state.info}</p>
         </form>
       </section>

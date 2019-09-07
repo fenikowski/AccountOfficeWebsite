@@ -20,7 +20,9 @@ class AdminPage extends React.Component {
     photoDescriptionResponse: "",
     currentPhotoDescription: "",
     certificates: [],
-    redirect: 0
+    redirect: 0,
+    sendCertificate: false,
+    sendPhoto: false
   };
 
   componentDidMount() {
@@ -74,6 +76,29 @@ class AdminPage extends React.Component {
     });
   };
 
+  quitUrgentInfo = e => {
+    e.preventDefault();
+
+    axios
+      .post("/api/urgentInfo", {
+        urgentInfo: "",
+        year: 1990,
+        month: 1,
+        day: 1
+      })
+      .then(data => {
+        this.setState({ sendInfoResponse: data.data.response });
+        // actualize info
+        this.downloadCurrentInfo();
+      });
+
+    //clear
+    this.setState({
+      urgentInfo: "",
+      date: ""
+    });
+  };
+
   handleSendDescription = e => {
     e.preventDefault();
 
@@ -112,26 +137,6 @@ class AdminPage extends React.Component {
     });
   };
 
-  handleSendPhoto = e => {
-    e.preventDefault();
-
-    axios
-      .post("/api/updatePhoto", {
-        photo: this.state.photo
-      })
-      .then(data => {
-        this.setState({ photoResponse: data.data.response });
-      });
-
-    //clear
-    this.setState({
-      photo: ""
-    });
-
-    // actualize info
-    this.downloadCurrentInfo();
-  };
-
   downloadCurrentInfo = () => {
     axios.get("/api/loadCurrentContent").then(data => {
       const urgentInfoData = data.data.find(item => item.name === "urgentInfo");
@@ -155,9 +160,16 @@ class AdminPage extends React.Component {
     });
   };
 
+  handleChange = e => {
+    if (e.target.id === "certificate" && e.target.files) {
+      this.setState({ sendCertificate: true });
+    } else if (e.target.id === "file" && e.target.files) {
+      this.setState({ sendPhoto: true });
+    }
+  };
+
   downloadCertificates = () => {
     axios.get("/api/getCertificates").then(data => {
-      console.log(data.data);
       this.setState({ certificates: data.data });
     });
   };
@@ -207,7 +219,24 @@ class AdminPage extends React.Component {
                 value={this.state.date}
                 name="date"
               />
-              <button onClick={this.handleSendUrgentInfo}>Wyślij</button>
+              <button
+                onClick={this.handleSendUrgentInfo}
+                disabled={
+                  this.state.urgentInfo && this.state.date ? false : true
+                }
+                style={{
+                  backgroundColor:
+                    this.state.urgentInfo && this.state.date ? "" : "lightgray"
+                }}
+              >
+                Wyślij
+              </button>
+              <button
+                onClick={this.quitUrgentInfo}
+                style={{ marginLeft: "1vw", backgroundColor: "lightcoral" }}
+              >
+                Wyłącz
+              </button>
               <p
                 style={{
                   color: "lightgreen",
@@ -237,7 +266,15 @@ class AdminPage extends React.Component {
                 value={this.state.description}
                 name="description"
               />
-              <button onClick={this.handleSendDescription}>Wyślij</button>
+              <button
+                onClick={this.handleSendDescription}
+                disabled={this.state.description ? false : true}
+                style={{
+                  backgroundColor: this.state.description ? "" : "lightgray"
+                }}
+              >
+                Wyślij
+              </button>
               <p
                 style={{
                   color: "lightgreen",
@@ -268,7 +305,17 @@ class AdminPage extends React.Component {
                 value={this.state.photoDescription}
                 name="photoDescription"
               />
-              <button onClick={this.handleSendPhotoDescription}>Wyślij</button>
+              <button
+                disabled={this.state.photoDescription ? false : true}
+                style={{
+                  backgroundColor: this.state.photoDescription
+                    ? ""
+                    : "lightgray"
+                }}
+                onClick={this.handleSendPhotoDescription}
+              >
+                Wyślij
+              </button>
               <p
                 style={{
                   color: "lightgreen",
@@ -303,8 +350,16 @@ class AdminPage extends React.Component {
                 name="file"
                 id="file"
                 encType="multipart/form-data"
+                onChange={this.handleChange}
               />
-              <input type="submit" />
+              <input
+                type="submit"
+                disabled={!this.state.sendPhoto}
+                style={{
+                  backgroundColor:
+                    this.state.sendPhoto === false ? "lightgray" : ""
+                }}
+              />
               <p
                 style={{
                   color: "lightgreen",
@@ -338,10 +393,18 @@ class AdminPage extends React.Component {
               <input
                 type="file"
                 name="file"
-                id="file"
+                id="certificate"
                 encType="multipart/form-data"
+                onChange={this.handleChange}
               />
-              <input type="submit" />
+              <input
+                type="submit"
+                disabled={!this.state.sendCertificate}
+                style={{
+                  backgroundColor:
+                    this.state.sendCertificate === false ? "lightgray" : ""
+                }}
+              />
               <p
                 style={{
                   color: "lightgreen",
