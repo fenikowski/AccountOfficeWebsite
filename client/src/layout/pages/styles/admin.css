@@ -118,7 +118,7 @@ section.admin div.certificates-board {
 
 section.admin div.certificates-board div.certificate {
   flex-basis: 10%;
-  background-color: #222;
+  background-color: #aaa;
   color: white;
 
   display: flex;
@@ -147,5 +147,5 @@ section.admin div.certificates-board div.certificate button:hover {
 }
 
 section.admin div.certificates-board div.certificate:nth-of-type(2n-1) {
-  background-color: #444;
+  background-color: #bbb;
 }

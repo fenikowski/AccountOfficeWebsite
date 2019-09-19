@@ -5,12 +5,22 @@ import "./styles/certificates.css";
 
 class Certificates extends React.Component {
   state = {
-    certificates: []
+    certificates: [],
+    show: ""
   };
 
   componentDidMount() {
     this.downloadCertificates();
+    window.addEventListener("scroll", this.handleScroll);
   }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll = () => {
+    this.setState({ show: "" });
+  };
 
   downloadCertificates = () => {
     axios
@@ -18,9 +28,19 @@ class Certificates extends React.Component {
       .then(data => this.setState({ certificates: data.data }));
   };
 
+  showCertificate = link => {
+    this.setState({ show: link });
+  };
+
   render() {
     const certificates = this.state.certificates.map((item, index) => (
-      <div key={index} className="certificate">
+      <div
+        key={index}
+        className="certificate"
+        onClick={() =>
+          this.setState({ show: `/api/showImage/${item.filename}` })
+        }
+      >
         <img src={`/api/showImage/${item.filename}`} alt="certyfikat" />
       </div>
     ));
@@ -29,6 +49,18 @@ class Certificates extends React.Component {
       <div id="certificates">
         <h2 className="certificates">Nasze certyfikaty</h2>
         <div className="certificates">{certificates}</div>
+        <div
+          className="certificate-closeup"
+          style={{
+            display: this.state.show ? "block" : "none"
+          }}
+        >
+          <img src={this.state.show} alt="" />
+          <i
+            onClick={() => this.setState({ show: "" })}
+            className="fas fa-times"
+          ></i>
+        </div>
       </div>
     );
   }

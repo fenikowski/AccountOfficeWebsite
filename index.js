@@ -136,11 +136,11 @@ router.post("/updatePhoto/:for", upload.single("file"), (req, res) => {
       info.insertOne({
         name: req.params.for,
         frontEndName: filename,
-        link: `http://localhost:5000/api/showImage/${filename}`,
+        link: `/api/showImage/${filename}`,
         filename: req.file.filename
       });
     });
-    return res.redirect("http://localhost:3000/admin");
+    return res.redirect("/admin");
   }
 
   // any other case
@@ -159,7 +159,7 @@ router.post("/updatePhoto/:for", upload.single("file"), (req, res) => {
         { name: req.params.for },
         {
           $set: {
-            link: `http://localhost:5000/api/showImage/${req.file.filename}`,
+            link: `/api/showImage/${req.file.filename}`,
             filename: req.file.filename
           }
         }
@@ -167,13 +167,13 @@ router.post("/updatePhoto/:for", upload.single("file"), (req, res) => {
     } else {
       info.insertOne({
         name: req.params.for,
-        link: `http://localhost:5000/api/showImage/${req.file.filename}`,
+        link: `/api/showImage/${req.file.filename}`,
         filename: req.file.filename
       });
     }
   });
 
-  res.redirect("http://localhost:3000/admin");
+  res.redirect("/admin");
 });
 
 router.post("/sendMessage", (req, res) => {

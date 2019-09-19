@@ -65,7 +65,7 @@ form#contact-form button:hover {
 
 div#contact-data {
   flex-basis: 50%;
-  background-color: #bbb;
+  background-color: rgb(247, 247, 247);
 
   display: flex;
   flex-direction: column;
@@ -74,18 +74,28 @@ div#contact-data {
 }
 
 div#contact-data div.contact-list div {
-  color: white;
-  padding: 5px;
-  font-size: 24px;
-  text-shadow: 1px 1px grey;
+  color: black;
+  padding: 0.75vh;
+  font-size: 3vh;
+  font-weight: 300;
 }
+
 div#contact-data div.contact-list div i {
-  padding-right: 12px;
+  margin-right: 12px;
 }
 
 div#contact-data div.opening-hours {
   text-align: center;
+  font-weight: 300;
+  font-size: 2.5vh;
 }
+
+div#contact-data div.opening-hours h3 {
+  font-weight: normal;
+  border-bottom: 1px black solid;
+  margin-bottom: 1vh;
+}
+
 div#contact-data div.opening-hours p {
   text-align: center;
 }

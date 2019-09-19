@@ -3,8 +3,8 @@ section.main div#certificates {
   background-color: #eee;
 
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
 }
 
 section.main div#certificates h2.certificates {
@@ -16,9 +16,18 @@ section.main div#certificates h2.certificates {
 }
 
 section.main div#certificates div.certificate {
-  max-height: 20vh;
+  max-height: 30vh;
   max-width: 30vh;
-  display: inline-block;
+  transition: 0.2s;
+  border: white 1vh solid;
+  box-shadow: 10px 10px 22px -8px rgba(0, 0, 0, 0.6);
+  margin: 5vh 2.5vw;
+}
+
+section.main div#certificates div.certificate:hover {
+  max-height: 35vh;
+  max-width: 35vh;
+  cursor: pointer;
 }
 
 section.main div#certificates div.certificates {
@@ -35,7 +44,53 @@ section.main div#certificates div.certificates {
 section.main div#certificates div.certificate img {
   height: 100%;
   width: 100%;
-  border: white 1vh solid;
-  transform: translate(0, -25%);
-  box-shadow: 10px 10px 22px -8px rgba(0, 0, 0, 0.6);
+}
+
+section.main div#certificates div.certificate-closeup {
+  position: fixed;
+  z-index: 10;
+  height: 80vh;
+  overflow: hidden;
+  top: 10vh;
+  left: 50vw;
+  transform: translate(-50%, 0);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  box-shadow: 0px 10px 71px 28px rgba(0, 0, 0, 0.75);
+  border: #222 0.75vh solid;
+}
+
+section.main div#certificates div.certificate-closeup img {
+  height: 100%;
+}
+
+section.main div#certificates div.certificate-closeup i {
+  color: #222;
+  position: absolute;
+  right: 1vh;
+  top: 1vh;
+  font-size: 5vh;
+  transition: 0.2s;
+}
+
+section.main div#certificates div.certificate-closeup i:hover {
+  cursor: pointer;
+  color: red;
+}
+
+@media (orientation: portrait) {
+  section.main div#certificates div.certificates {
+    flex-direction: column;
+  }
+
+  section.main div#certificates div.certificate {
+    max-height: 70vw;
+    max-width: 70vw;
+  }
+
+  section.main div#certificates div.certificate:hover {
+    max-height: 70vw;
+    max-width: 70vw;
+  }
 }

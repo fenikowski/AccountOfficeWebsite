@@ -375,10 +375,7 @@ class AdminPage extends React.Component {
             <div className="current-info">
               <p>Aktualnie wyświetlane zdjęcie:</p>
             </div>
-            <img
-              src="http://localhost:5000/api/downloadImage/mainPageImage"
-              alt=""
-            />
+            <img src="/api/downloadImage/mainPageImage" alt="" />
           </div>
         </div>
         <div className="row">

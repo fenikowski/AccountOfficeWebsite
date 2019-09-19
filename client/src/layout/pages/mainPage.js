@@ -7,8 +7,7 @@ import Certificates from "../../components/certificates";
 class MainPage extends React.Component {
   state = {
     description: "",
-    photoDescription: "",
-    certificates: []
+    photoDescription: ""
   };
 
   componentDidMount() {
@@ -96,10 +95,7 @@ class MainPage extends React.Component {
         <Certificates />
         <div className="about">
           <div>
-            <img
-              src="http://localhost:5000/api/downloadImage/mainPageImage"
-              alt="family"
-            />
+            <img src="/api/downloadImage/mainPageImage" alt="family" />
           </div>
           <div>
             <p>
